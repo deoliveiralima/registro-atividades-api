@@ -2,20 +2,19 @@ package io.projetos.deoliveiralimaigor.registroatividadesapi.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.entity.AtividadeEntity;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.repository.AtividadeRepository;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.AtividadeRequest;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.AtividadeResponse;
 
+
 @Service
-public class AtividadeService {
+public class AtividadeService { 
 
     @Autowired
     AtividadeRepository atividadeRepository;
