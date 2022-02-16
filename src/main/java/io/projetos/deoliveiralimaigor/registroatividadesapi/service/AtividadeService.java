@@ -44,7 +44,6 @@ public class AtividadeService {
         AtividadeEntity atividadeEntity = new AtividadeEntity();
         AtividadeResponse atividadeResponse = new AtividadeResponse();
     
-
         try{
             
             atividadeEntity = (AtividadeEntity) atividadeRepository.findById(id).get();

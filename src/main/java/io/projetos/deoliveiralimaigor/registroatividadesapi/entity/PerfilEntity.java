@@ -22,13 +22,24 @@ public class PerfilEntity implements GrantedAuthority{
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
-	private String name;
+	private String nome;
 
 	@Override
 	public String getAuthority() {
-		return this.name;
+		return this.nome;
+	}
+
+	public Long getId(){
+		return this.id;
+	}
+
+	public void setNome(String nome){
+		this.nome = nome;
+	}
+	public String getNome(){
+		return this.nome;
 	}
 
 }

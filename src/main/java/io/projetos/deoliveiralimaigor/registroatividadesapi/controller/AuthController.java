@@ -19,32 +19,31 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.TokenService
 @RequestMapping
 public class AuthController {
     
-    
+     
     @Autowired
-     TokenService tokenService;
+    private TokenService tokenService;
 
      
-     AuthenticationManager authenticationManager;
+    @Autowired
+	private AuthenticationManager authenticationManager;
 
 
     @PostMapping("/auth")
     public ResponseEntity<TokenResponse> auth(@RequestBody @Validated LoginRequest loginRequest){
-        System.out.println("teste teste");
+        System.out.println(loginRequest.getUsername() + " - " + loginRequest.getPassword());
 
         TokenResponse tokenResponse = new TokenResponse();
       
 
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
+        
         Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
         String token = tokenService.generateToken(authentication);
         tokenResponse.setType("Bearer");
         tokenResponse.setToken(token);
         
-    
-        return ResponseEntity.ok(tokenResponse );
+        return ResponseEntity.ok(tokenResponse);
 
-
-        
     }
 }

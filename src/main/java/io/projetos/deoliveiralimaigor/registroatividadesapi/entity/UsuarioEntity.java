@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Retry;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +21,7 @@ public class UsuarioEntity implements UserDetails {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
@@ -60,8 +59,6 @@ public class UsuarioEntity implements UserDetails {
 
         return this.perfis;
     }
-
-
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

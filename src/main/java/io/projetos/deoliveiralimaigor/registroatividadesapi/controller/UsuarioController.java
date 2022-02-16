@@ -12,7 +12,7 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.UsuarioServi
 
 @RestController
 @RequestMapping("usuario")
-public class UserController {
+public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
@@ -20,9 +20,9 @@ public class UserController {
     @PostMapping
     public UsuarioResponse salvaUsuario(@RequestBody UsuarioRequest usuarioRequest){
 
-        UsuarioResponse usuarioResponse = usuarioService.salvaUsuario(usuarioRequest);
+       
 
-        return usuarioResponse;
+        return usuarioService.salvaUsuario(usuarioRequest);
         
 
 

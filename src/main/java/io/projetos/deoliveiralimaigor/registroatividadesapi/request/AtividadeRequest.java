@@ -7,7 +7,7 @@ public class AtividadeRequest {
 
     private String descricao;
     private String motivo;
-    private Date data;
+    private String data;
 
     public void setDescricao(String descricao){
         this.descricao = descricao;
@@ -25,11 +25,11 @@ public class AtividadeRequest {
         return this.motivo;
     }
 
-    public void setData(Date data){
+    public void setData(String data){
         this.data = data;
     }
 
-    public Date getData(){
+    public String getData(){
         return this.data;
     }
 
