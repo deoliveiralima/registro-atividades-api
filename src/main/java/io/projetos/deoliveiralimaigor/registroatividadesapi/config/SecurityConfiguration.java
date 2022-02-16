@@ -62,5 +62,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //Configuration for static resources
     @Override
     public void configure(WebSecurity web) throws Exception {
+		web
+            .ignoring()
+            .antMatchers("/h2/**");
     }
+
 }
