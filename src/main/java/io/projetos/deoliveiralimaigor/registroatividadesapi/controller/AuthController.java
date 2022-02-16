@@ -16,7 +16,7 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.response.TokenRespon
 import io.projetos.deoliveiralimaigor.registroatividadesapi.service.TokenService;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping
 public class AuthController {
     
     
@@ -27,10 +27,12 @@ public class AuthController {
      AuthenticationManager authenticationManager;
 
 
-    @PostMapping
+    @PostMapping("/auth")
     public ResponseEntity<TokenResponse> auth(@RequestBody @Validated LoginRequest loginRequest){
+        System.out.println("teste teste");
 
         TokenResponse tokenResponse = new TokenResponse();
+      
 
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
