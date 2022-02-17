@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.projetos.deoliveiralimaigor.registroatividadesapi.entity.AtividadeEntity;
+import io.projetos.deoliveiralimaigor.registroatividadesapi.entity.CategoriaAtividadeEntity;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.repository.AtividadeRepository;
+import io.projetos.deoliveiralimaigor.registroatividadesapi.repository.CategoriaAtividadeRepository;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.AtividadeRequest;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.AtividadeResponse;
 
@@ -19,13 +21,21 @@ public class AtividadeService {
     @Autowired
     private AtividadeRepository atividadeRepository;
 
+    @Autowired
+    private CategoriaAtividadeRepository categoriaAtividadeRepository;
+
 
     public AtividadeResponse salvaAtividade (AtividadeRequest atividadeRequest){
         AtividadeEntity atividadeEntity = new AtividadeEntity();
         AtividadeEntity atividadeSalva = new AtividadeEntity(); 
         AtividadeResponse atividadeResponse = new AtividadeResponse();
+        CategoriaAtividadeEntity categoriaAtividade = new CategoriaAtividadeEntity();
+
+        categoriaAtividade = categoriaAtividadeRepository.findById(2L).get();
+
 
         BeanUtils.copyProperties(atividadeRequest, atividadeEntity);
+        atividadeEntity.setCategoriaAtividade(categoriaAtividade);
 
         try{
             atividadeSalva = atividadeRepository.save(atividadeEntity);

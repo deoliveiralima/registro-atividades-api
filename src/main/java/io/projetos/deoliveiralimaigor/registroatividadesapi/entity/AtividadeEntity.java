@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity (name = "atividades")
@@ -28,6 +29,7 @@ public class AtividadeEntity {
     private String data;
 
     @ManyToOne
+    @JsonBackReference
     private CategoriaAtividadeEntity categoriaAtividade;
 
     public Long getId(){

@@ -8,9 +8,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.projetos.deoliveiralimaigor.registroatividadesapi.entity.AtividadeEntity;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.entity.CategoriaAtividadeEntity;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.repository.CategoriaAtividadeRepository;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.CategoriaAtividadeRequest;
+import io.projetos.deoliveiralimaigor.registroatividadesapi.response.AtividadeResponse;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.CategoriaAtividadeResponse;
 
 @Service
@@ -54,7 +56,6 @@ public class CategoriaAtividadeService {
             BeanUtils.copyProperties(categoriaAtividade, categoriaAtividadeResponse);
             categoriaAtividadesResponse.add(categoriaAtividadeResponse);
 
-            
         }
     
         return categoriaAtividadesResponse;
@@ -64,15 +65,27 @@ public class CategoriaAtividadeService {
     public CategoriaAtividadeResponse obtemCategoriaAtividade(Long id){
         CategoriaAtividadeEntity categoriaAtividade = new CategoriaAtividadeEntity();
         CategoriaAtividadeResponse categoriaAtividadeResponse = new CategoriaAtividadeResponse();
+        Set<AtividadeResponse> atividadesResponse = new HashSet<>();
         
         try{
             categoriaAtividade = categoriaAtividadeRepository.findById(id).get();
 
-            
         }catch(Exception e){
             System.out.println(e);
         }
+
         BeanUtils.copyProperties(categoriaAtividade, categoriaAtividadeResponse);
+
+        for (AtividadeEntity atividadeEntity : categoriaAtividade.getAtividades()) {
+            
+            AtividadeResponse atividadeResponse = new AtividadeResponse();
+            BeanUtils.copyProperties(atividadeEntity, atividadeResponse);
+
+            atividadesResponse.add(atividadeResponse);
+            
+        }
+        categoriaAtividadeResponse.setAtividades(atividadesResponse);
+        
 
         return categoriaAtividadeResponse;
         

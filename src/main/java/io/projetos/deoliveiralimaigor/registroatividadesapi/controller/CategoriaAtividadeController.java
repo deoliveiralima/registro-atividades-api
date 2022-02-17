@@ -3,6 +3,7 @@ package io.projetos.deoliveiralimaigor.registroatividadesapi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,7 +41,7 @@ public class CategoriaAtividadeController {
 
     @ResponseBody
     @GetMapping("/{id}")
-    public CategoriaAtividadeResponse obtemCategoriaAtividade(@RequestParam Long id){
+    public CategoriaAtividadeResponse obtemCategoriaAtividade(@PathVariable Long id){
 
         return categoriaAtividadeService.obtemCategoriaAtividade(id);
 
@@ -48,7 +49,7 @@ public class CategoriaAtividadeController {
 
     @ResponseBody
     @PutMapping("/{id}")
-    public CategoriaAtividadeResponse atualizaCategoriaAtividade(@RequestParam Long id, @RequestBody CategoriaAtividadeRequest categoriaAtividadeRequest){
+    public CategoriaAtividadeResponse atualizaCategoriaAtividade(@PathVariable Long id, @RequestBody CategoriaAtividadeRequest categoriaAtividadeRequest){
 
         return categoriaAtividadeService.atualizaCategoriaAtividade( categoriaAtividadeRequest,id);
 
@@ -56,7 +57,7 @@ public class CategoriaAtividadeController {
 
    
     @DeleteMapping("/{id}")
-    public void excluiCategoriaAtividade(@RequestParam Long id){
+    public void excluiCategoriaAtividade(@PathVariable Long id){
 
          categoriaAtividadeService.excluiCategoriaAtividade(id);
 

@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Data 
@@ -26,10 +30,19 @@ public class CategoriaAtividadeEntity {
     @Column(nullable = false)
     private String nome;
 
-    @OneToMany(mappedBy = "categoria_atividade", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoriaAtividade", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<AtividadeEntity> atividades;
-   
 
+   
+    public void setAtividades(Set<AtividadeEntity> atividades){
+        this.atividades = atividades;
+        
+    }
+
+    public Set<AtividadeEntity> getAtividades(){
+        return this.atividades;
+    }
 
     
 }
