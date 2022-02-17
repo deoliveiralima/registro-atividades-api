@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,13 +22,12 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.AtividadeSer
 public class AtividadeController {
 
     @Autowired
-    AtividadeService atividadeService;
+    private AtividadeService atividadeService;
 
     @PostMapping
-    public @ResponseBody AtividadeResponse salvaAtividade(AtividadeRequest atividadeRequest){
-        AtividadeResponse atividadeResponse = new AtividadeResponse();
-        atividadeResponse = atividadeService.salvaAtividade(atividadeRequest); 
-        return atividadeResponse;
+    public @ResponseBody AtividadeResponse salvaAtividade(@RequestBody AtividadeRequest atividadeRequest){
+        
+        return atividadeService.salvaAtividade(atividadeRequest);
     }
 
     @GetMapping("/{id}")

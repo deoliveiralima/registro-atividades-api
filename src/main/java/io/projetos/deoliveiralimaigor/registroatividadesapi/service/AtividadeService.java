@@ -17,7 +17,7 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.response.AtividadeRe
 public class AtividadeService { 
 
     @Autowired
-    AtividadeRepository atividadeRepository;
+    private AtividadeRepository atividadeRepository;
 
 
     public AtividadeResponse salvaAtividade (AtividadeRequest atividadeRequest){

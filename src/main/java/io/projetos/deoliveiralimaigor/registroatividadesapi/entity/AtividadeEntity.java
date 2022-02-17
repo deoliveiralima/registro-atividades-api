@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -25,6 +26,9 @@ public class AtividadeEntity {
     @JsonFormat
     @Column(nullable = false)
     private String data;
+
+    @ManyToOne
+    private CategoriaAtividadeEntity categoriaAtividade;
 
     public Long getId(){
         return this.id;
@@ -53,6 +57,15 @@ public class AtividadeEntity {
     public String getData(){
         return this.data;
     }
+    public void setCategoriaAtividade(CategoriaAtividadeEntity categoriaAtividadeEntity){
+        this.categoriaAtividade = categoriaAtividadeEntity;
+    }
+
+    public CategoriaAtividadeEntity getCategoriaAtividade(){
+        return this.categoriaAtividade;
+    }
+
+
 
 
 

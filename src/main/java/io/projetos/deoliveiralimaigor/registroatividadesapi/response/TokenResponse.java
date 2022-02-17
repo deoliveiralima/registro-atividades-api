@@ -1,8 +1,10 @@
 package io.projetos.deoliveiralimaigor.registroatividadesapi.response;
 
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
-@Builder
+
+@NoArgsConstructor
 public class TokenResponse {
 
     private String type;
