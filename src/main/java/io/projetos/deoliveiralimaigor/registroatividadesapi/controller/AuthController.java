@@ -34,7 +34,7 @@ public class AuthController {
 
         TokenResponse tokenResponse = new TokenResponse();
       
-
+  
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         
         Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);

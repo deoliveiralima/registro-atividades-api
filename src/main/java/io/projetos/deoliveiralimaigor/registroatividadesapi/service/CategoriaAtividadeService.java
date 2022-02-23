@@ -3,6 +3,7 @@ package io.projetos.deoliveiralimaigor.registroatividadesapi.service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,13 +41,13 @@ public class CategoriaAtividadeService {
         
     }
 
-    public Set<CategoriaAtividadeResponse> listaCategoriaAtividade(){
-        Set<CategoriaAtividadeEntity> categoriaAtividades =  new HashSet();
-        Set<CategoriaAtividadeResponse> categoriaAtividadesResponse =  new HashSet();
+    public List<CategoriaAtividadeResponse> listaCategoriaAtividade(){
+        List<CategoriaAtividadeEntity> categoriaAtividades = new ArrayList();
+        List<CategoriaAtividadeResponse> categoriaAtividadesResponse =  new ArrayList();
        
         
         try{
-            categoriaAtividades = (Set<CategoriaAtividadeEntity>) categoriaAtividadeRepository.findAll();
+            categoriaAtividades =  (List<CategoriaAtividadeEntity>) categoriaAtividadeRepository.findAll();
             
         }catch(Exception e){
             System.out.println(e);
@@ -65,7 +66,7 @@ public class CategoriaAtividadeService {
     public CategoriaAtividadeResponse obtemCategoriaAtividade(Long id){
         CategoriaAtividadeEntity categoriaAtividade = new CategoriaAtividadeEntity();
         CategoriaAtividadeResponse categoriaAtividadeResponse = new CategoriaAtividadeResponse();
-        Set<AtividadeResponse> atividadesResponse = new HashSet<>();
+        List<AtividadeResponse> atividadesResponse = new ArrayList();
         
         try{
             categoriaAtividade = categoriaAtividadeRepository.findById(id).get();
@@ -84,7 +85,7 @@ public class CategoriaAtividadeService {
             atividadesResponse.add(atividadeResponse);
             
         }
-        categoriaAtividadeResponse.setAtividades(atividadesResponse);
+        categoriaAtividadeResponse.setAtividaes(atividadesResponse);
         
 
         return categoriaAtividadeResponse;

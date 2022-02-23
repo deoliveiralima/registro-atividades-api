@@ -31,7 +31,7 @@ public class AtividadeService {
         AtividadeResponse atividadeResponse = new AtividadeResponse();
         CategoriaAtividadeEntity categoriaAtividade = new CategoriaAtividadeEntity();
 
-        categoriaAtividade = categoriaAtividadeRepository.findById(2L).get();
+        categoriaAtividade = categoriaAtividadeRepository.findById(atividadeRequest.getCategoriaAtividadeId()).get();
 
 
         BeanUtils.copyProperties(atividadeRequest, atividadeEntity);

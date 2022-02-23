@@ -2,36 +2,17 @@ package io.projetos.deoliveiralimaigor.registroatividadesapi.request;
 
 import java.util.Date;
 
+import lombok.Data;
 
+@Data
 public class AtividadeRequest {
 
     private String descricao;
     private String motivo;
     private String data;
+    private Long categoriaAtividadeId;
 
-    public void setDescricao(String descricao){
-        this.descricao = descricao;
-    }
-
-    public String getDescricao(){
-        return this.descricao;
-    }
-
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
-    }
-
-    public String getMotivo(){
-        return this.motivo;
-    }
-
-    public void setData(String data){
-        this.data = data;
-    }
-
-    public String getData(){
-        return this.data;
-    }
+   
 
 
 

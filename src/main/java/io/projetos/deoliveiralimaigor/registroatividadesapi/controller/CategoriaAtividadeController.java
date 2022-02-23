@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Set;
+
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.CategoriaAtividadeRequest;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.CategoriaAtividadeResponse;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.service.CategoriaAtividadeService;
+
+
 
 @RestController
 @RequestMapping("categoria-atividade")
@@ -33,9 +38,9 @@ public class CategoriaAtividadeController {
 
     @ResponseBody
     @GetMapping
-    public <Set>CategoriaAtividadeResponse listaCategoriaAtividade(){
+    public List<CategoriaAtividadeResponse> listaCategoriaAtividade(){
 
-        return (CategoriaAtividadeResponse) categoriaAtividadeService.listaCategoriaAtividade();
+        return  categoriaAtividadeService.listaCategoriaAtividade();
 
     }
 
