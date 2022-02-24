@@ -2,6 +2,7 @@ package io.projetos.deoliveiralimaigor.registroatividadesapi.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.BeanUtils;
@@ -40,13 +41,13 @@ public class CategoriaAtividadeService {
         
     }
 
-    public Set<CategoriaAtividadeResponse> listaCategoriaAtividade(){
-        Set<CategoriaAtividadeEntity> categoriaAtividades =  new HashSet();
-        Set<CategoriaAtividadeResponse> categoriaAtividadesResponse =  new HashSet();
+    public List<CategoriaAtividadeResponse> listaCategoriaAtividade(){
+        List<CategoriaAtividadeEntity> categoriaAtividades =  new ArrayList();
+        List<CategoriaAtividadeResponse> categoriaAtividadesResponse =  new ArrayList();
        
         
         try{
-            categoriaAtividades = (Set<CategoriaAtividadeEntity>) categoriaAtividadeRepository.findAll();
+            categoriaAtividades = (List<CategoriaAtividadeEntity>) categoriaAtividadeRepository.findAll();
             
         }catch(Exception e){
             System.out.println(e);

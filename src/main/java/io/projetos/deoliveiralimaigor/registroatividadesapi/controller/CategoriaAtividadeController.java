@@ -1,6 +1,14 @@
 package io.projetos.deoliveiralimaigor.registroatividadesapi.controller;
 
+import java.net.URI;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,24 +26,38 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.CategoriaAti
 
 @RestController
 @RequestMapping("categoria-atividade")
+@CrossOrigin("http://localhost:3000")
 public class CategoriaAtividadeController {
 
     @Autowired
     private CategoriaAtividadeService categoriaAtividadeService;
 
+    // @PostMapping
+    // @ResponseBody
+    // public CategoriaAtividadeResponse salvaCategoriaAtividade(@RequestBody CategoriaAtividadeRequest categoriaAtividadeRequest){
+
+    //     return categoriaAtividadeService.salvaCategoriaAtividade(categoriaAtividadeRequest);
+
+    // }
+
     @PostMapping
     @ResponseBody
-    public CategoriaAtividadeResponse salvaCategoriaAtividade(@RequestBody CategoriaAtividadeRequest categoriaAtividadeRequest){
-
-        return categoriaAtividadeService.salvaCategoriaAtividade(categoriaAtividadeRequest);
+    @CrossOrigin("http://localhost:3000")
+    public ResponseEntity<CategoriaAtividadeResponse> salvaCategoriaAtividade(@RequestBody CategoriaAtividadeRequest categoriaAtividadeRequest){
+        CategoriaAtividadeResponse categoriaAtividadeResponse = new CategoriaAtividadeResponse();
+        
+        categoriaAtividadeResponse = categoriaAtividadeService.salvaCategoriaAtividade(categoriaAtividadeRequest);
+ 
+       return ResponseEntity.status(HttpStatus.CREATED).body(categoriaAtividadeResponse);
 
     }
 
+
     @ResponseBody
     @GetMapping
-    public <Set>CategoriaAtividadeResponse listaCategoriaAtividade(){
-
-        return (CategoriaAtividadeResponse) categoriaAtividadeService.listaCategoriaAtividade();
+    public List<CategoriaAtividadeResponse> listaCategoriaAtividade(){
+        System.out.println("obter lista");
+        return  categoriaAtividadeService.listaCategoriaAtividade();
 
     }
 
@@ -43,7 +65,9 @@ public class CategoriaAtividadeController {
     @GetMapping("/{id}")
     public CategoriaAtividadeResponse obtemCategoriaAtividade(@PathVariable Long id){
 
-        return categoriaAtividadeService.obtemCategoriaAtividade(id);
+        System.out.println(5);
+        return null;
+        // return categoriaAtividadeService.obtemCategoriaAtividade(id);
 
     }
 

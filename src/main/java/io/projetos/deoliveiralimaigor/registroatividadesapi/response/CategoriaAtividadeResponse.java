@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class CategoriaAtividadeResponse {
     private String nome;
+    private Long id;
     private Set<AtividadeResponse> atividades;
 
     public void setAtividaes(Set<AtividadeResponse> atividades){
