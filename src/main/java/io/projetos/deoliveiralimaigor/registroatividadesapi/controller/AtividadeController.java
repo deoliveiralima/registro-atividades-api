@@ -1,5 +1,6 @@
 package io.projetos.deoliveiralimaigor.registroatividadesapi.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.AtividadeRequest;
+import io.projetos.deoliveiralimaigor.registroatividadesapi.request.DataRequest;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.AtividadeResponse;
+import io.projetos.deoliveiralimaigor.registroatividadesapi.response.ObtemAtividadeResponse;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.service.AtividadeService;
 
 @RestController
@@ -26,6 +29,7 @@ public class AtividadeController {
 
     @PostMapping
     public @ResponseBody AtividadeResponse salvaAtividade(@RequestBody AtividadeRequest atividadeRequest){
+        System.out.println(atividadeRequest);
         
         return atividadeService.salvaAtividade(atividadeRequest);
     }
@@ -35,16 +39,28 @@ public class AtividadeController {
         
         return atividadeService.obterAtividade(id);
     }
+    @GetMapping("editar/{id}")
+    public AtividadeResponse editaAtividade(@PathVariable Long id){
+        
+        return atividadeService.editaAtividade(id);
+    }
     
-    @GetMapping
-    public List<AtividadeResponse> listaAtividades(){
+    @GetMapping("/listar/{direcao}")
+    public List<ObtemAtividadeResponse> listaAtividades(@PathVariable String direcao){
 
-        return atividadeService.listaAtividade();
+        return atividadeService.listaAtividade(direcao);
+
+    }
+
+    @PostMapping("/listar/data")
+    public List<AtividadeResponse> listaAtividadesPorData(@RequestBody DataRequest data){
+        
+        return atividadeService.listaAtividadePorData(data);
 
     }
 
     @PutMapping("/{id}")
-    public AtividadeResponse atualizaAtividade(AtividadeRequest atividadeRequest ,@PathVariable Long id){
+    public AtividadeResponse atualizaAtividade(@RequestBody AtividadeRequest atividadeRequest ,@PathVariable Long id){
 
 
         return atividadeService.AtualizaAtividade(atividadeRequest, id);
@@ -52,7 +68,7 @@ public class AtividadeController {
     }
 
     @DeleteMapping("/{id}")
-    public AtividadeResponse ExcluiAtividade(@PathVariable Long id){
+    public  Boolean ExcluiAtividade(@PathVariable Long id){
 
         return atividadeService.ExcluiAtividade(id);
         

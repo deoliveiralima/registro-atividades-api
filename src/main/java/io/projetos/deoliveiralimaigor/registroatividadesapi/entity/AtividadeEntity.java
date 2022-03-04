@@ -26,7 +26,7 @@ public class AtividadeEntity {
 
     @JsonFormat
     @Column(nullable = false)
-    private String data;
+    private Date data;
 
     @ManyToOne
     @JsonBackReference
@@ -52,11 +52,11 @@ public class AtividadeEntity {
         return this.motivo;
     }
 
-    public void setData(String data){
+    public void setData(Date data){
         this.data = data;
     }
 
-    public String getData(){
+    public Date getData(){
         return this.data;
     }
     public void setCategoriaAtividade(CategoriaAtividadeEntity categoriaAtividadeEntity){

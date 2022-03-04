@@ -18,11 +18,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController; 
+
+import java.util.List;
+import java.util.Set;
 
 import io.projetos.deoliveiralimaigor.registroatividadesapi.request.CategoriaAtividadeRequest;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.response.CategoriaAtividadeResponse;
 import io.projetos.deoliveiralimaigor.registroatividadesapi.service.CategoriaAtividadeService;
+
+
 
 @RestController
 @RequestMapping("categoria-atividade")
@@ -56,7 +61,6 @@ public class CategoriaAtividadeController {
     @ResponseBody
     @GetMapping
     public List<CategoriaAtividadeResponse> listaCategoriaAtividade(){
-        System.out.println("obter lista");
         return  categoriaAtividadeService.listaCategoriaAtividade();
 
     }
@@ -65,9 +69,8 @@ public class CategoriaAtividadeController {
     @GetMapping("/{id}")
     public CategoriaAtividadeResponse obtemCategoriaAtividade(@PathVariable Long id){
 
-        System.out.println(5);
-        return null;
-        // return categoriaAtividadeService.obtemCategoriaAtividade(id);
+
+        return categoriaAtividadeService.obtemCategoriaAtividade(id);
 
     }
 
@@ -81,9 +84,12 @@ public class CategoriaAtividadeController {
 
    
     @DeleteMapping("/{id}")
-    public void excluiCategoriaAtividade(@PathVariable Long id){
+    @ResponseBody
+    public Boolean excluiCategoriaAtividade(@PathVariable Long id){
 
-         categoriaAtividadeService.excluiCategoriaAtividade(id);
+        return  categoriaAtividadeService.excluiCategoriaAtividade(id);
+
+         
 
     }
 
