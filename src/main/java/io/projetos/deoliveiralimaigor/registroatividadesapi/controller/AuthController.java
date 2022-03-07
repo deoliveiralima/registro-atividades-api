@@ -22,31 +22,31 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.TokenService
 public class AuthController {
     
      
-    @Autowired
-    private TokenService tokenService;
+    // @Autowired
+    // private TokenService tokenService;
 
      
-    @Autowired
-	private AuthenticationManager authenticationManager;
+    // @Autowired
+	// private AuthenticationManager authenticationManager;
 
 
-    @PostMapping("/auth")
-    @CrossOrigin("http://localhost:3000")
-    public ResponseEntity<TokenResponse> auth(@RequestBody @Validated LoginRequest loginRequest){
-        System.out.println(loginRequest.getUsername() + " - " + loginRequest.getPassword());
+    // @PostMapping("/auth")
+    // @CrossOrigin("http://localhost:3000")
+    // public ResponseEntity<TokenResponse> auth(@RequestBody @Validated LoginRequest loginRequest){
+    //     System.out.println(loginRequest.getUsername() + " - " + loginRequest.getPassword());
 
-        TokenResponse tokenResponse = new TokenResponse();
+    //     TokenResponse tokenResponse = new TokenResponse();
       
   
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
+    //     UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         
-        Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+    //     Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
-        String token = tokenService.generateToken(authentication);
-        tokenResponse.setType("Bearer");
-        tokenResponse.setToken(token);
+    //     String token = tokenService.generateToken(authentication);
+    //     tokenResponse.setType("Bearer");
+    //     tokenResponse.setToken(token);
         
-        return ResponseEntity.ok(tokenResponse);
+    //     return ResponseEntity.ok(tokenResponse);
 
-    }
+    // }
 }

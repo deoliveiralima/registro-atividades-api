@@ -21,52 +21,55 @@ import io.projetos.deoliveiralimaigor.registroatividadesapi.service.TokenService
 
 
 
-@EnableWebSecurity
+
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-	private AuthenticationService authenticationService;
-	
-	@Autowired
-	private TokenService tokenService;
-	
-	@Autowired
-	private UsuarioRepository repository;
-	
-	@Override
-	@Bean
-	protected AuthenticationManager authenticationManager() throws Exception {
-		return super.authenticationManager();
+	public SecurityConfiguration(){
+		super(true);
 	}
+
+	// @Autowired
+	// private AuthenticationService authenticationService;
+	
+	// @Autowired
+	// private TokenService tokenService;
+	
+	// @Autowired
+	// private UsuarioRepository repository;
+	
+	// // @Override
+	// @Bean
+	// protected AuthenticationManager authenticationManager() throws Exception {
+	// 	return super.authenticationManager();
+	// }
 	
     //Configurations for authentication
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.userDetailsService(authenticationService).passwordEncoder(new BCryptPasswordEncoder());
-    }
+    // @Override
+    // protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    // 	auth.userDetailsService(authenticationService).passwordEncoder(new BCryptPasswordEncoder());
+    // }
 
     //Configuration for authorization
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-			.antMatchers(HttpMethod.POST, "/*").permitAll()
-			.antMatchers(HttpMethod.POST, "/*/").permitAll()
-        	.antMatchers(HttpMethod.POST, "/auth*").permitAll()
-			.antMatchers(HttpMethod.POST, "/usuario/*").permitAll()
-			.antMatchers(HttpMethod.POST, "/*").permitAll()
-        	.anyRequest().authenticated()
-        	.and().csrf().disable()
-        	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors()
-        	.and().addFilterBefore(new TokenAuthenticationFilter(tokenService, repository), UsernamePasswordAuthenticationFilter.class);
+        // http.authorizeRequests().antMatchers("/").permitAll();
+			// .antMatchers(HttpMethod.POST, "/**").permitAll()
+			// .antMatchers(HttpMethod.POST, "/*/").permitAll()
+        	// .antMatchers(HttpMethod.POST, "/auth*").permitAll()
+			// .antMatchers(HttpMethod.POST, "/usuario/*").permitAll()
+			// .antMatchers(HttpMethod.POST, "/*").permitAll()
+        	// .anyRequest().authenticated()
+        	// .and().csrf().disable()
+        	// .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors()
+        	// .and().addFilterBefore(new TokenAuthenticationFilter(tokenService, repository), UsernamePasswordAuthenticationFilter.class);
     }
 
     //Configuration for static resources
     @Override
     public void configure(WebSecurity web) throws Exception {
-		web
-            .ignoring()
-            .antMatchers("/h2/**");
+		// web
+        //     .ignoring()
+        //     .antMatchers("/h2/**");
     }
 
 }
