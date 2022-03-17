@@ -10,7 +10,7 @@ REST API para a realização do CRUD para o registro de atividades realizadas em
 
 <h2> Capturas de telas do CRUD da aplicação </h2>
 
-<h3> Post de Atividade  </h3>
+<h3> POST de Atividade  </h3>
 
 Body: 
  ```
@@ -24,3 +24,26 @@ Body:
 <h1 align="center">
     <img src="https://github.com/deoliveiralima/registro-atividades-api/blob/master/screenshots/postman_post_atividade.png" />
 </h1>
+
+<h3> GET de Atividade  </h3>
+
+URI: http://localhost:8080/atividade/5 
+
+<h1 align="center">
+    <img src="https://github.com/deoliveiralima/registro-atividades-api/blob/master/screenshots/postman_get_atividade.png" />
+</h1>
+
+<h3> PUT de Atividade  </h3>
+URI: http://localhost:8080/atividade/5 
+Body: 
+ ```
+ {
+    "descricao" : "Troca de cabo USB da Impressora na Secretaria ",
+    "motivo" : "impressora nao funcionando",
+    "data" : "2022-05-06",
+    "categoriaAtividadeId" : 4
+}
+```
+
+
+
