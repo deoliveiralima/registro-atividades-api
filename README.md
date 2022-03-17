@@ -5,7 +5,6 @@ REST API para a realização do CRUD para o registro de atividades realizadas em
 
 ## Tecnologias: 
 - [x] Java<br> 
-- [x] Spring boot 11<br> 
+- [x] Spring boot <br> 
 - [x] Spring Security< br> 
-- [x] Java 11<br> 
-- [x] Java 11<br> 
+
