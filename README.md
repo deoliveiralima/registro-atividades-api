@@ -1,6 +1,7 @@
 # API - Registro de Atividades
 
-## Sobre o Projeto <a name="-sobre"/></a>
+ <a name="-sobre"/></a>
+## Sobre o Projeto
 REST API para a realização do CRUD para o registro de atividades realizadas em atendimentos ou internamente no setor TIC. Os dados necessários para o cadastro de uma atividade são a descrição, motivo, data e a que categoria está associada.  Para a categoria registra-se apenas o nome. Esta API é apenas para demonstração. 
 
 <p align="center">
@@ -16,12 +17,12 @@ REST API para a realização do CRUD para o registro de atividades realizadas em
 - [x] JSON Web Token< br> 
 - [x] Mysql < br> 
 
+<a name="-diagrama"/></a>
+<h2> Diagramas de Classe </h2> 
 
-<h2> Diagramas de Classe </h2> <a name="-diagrama"/></a>
 
-
-
-<h2> Capturas de telas do CRUD da aplicação </h2> <a name="-capturas"/></a>
+<a name="-capturas"/></a>
+<h2> Capturas de telas do CRUD da aplicação </h2> 
 
 
 <h3> POST de Atividade  </h3>
