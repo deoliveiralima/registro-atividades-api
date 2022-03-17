@@ -34,8 +34,10 @@ URI: http://localhost:8080/atividade/5
 </h1>
 
 <h3> PUT de Atividade  </h3>
+
 URI: http://localhost:8080/atividade/5 
 Body: 
+
  ```
  {
     "descricao" : "Troca de cabo USB da Impressora na Secretaria ",
@@ -44,6 +46,9 @@ Body:
     "categoriaAtividadeId" : 4
 }
 ```
+<h1 align="center">
+    <img src="https://github.com/deoliveiralima/registro-atividades-api/blob/master/screenshots/pstman_put_atividade.png" />
+</h1>
 
 
 
