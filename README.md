@@ -10,12 +10,17 @@ REST API para a realização do CRUD para o registro de atividades realizadas em
 
 <h2> Capturas de telas do CRUD da aplicação </h2>
 
-<h3> [POST] save | status 200 OK </h3>
+<h3> Post de Atividade  </h3>
 
 Body: 
+ ```
   {
     "descricao" : "Troca de cabo USB da Impressora na Secretaria ",
     "motivo" : "impressora nao funcionando",
     "data" : "2021-01-01",
     "categoriaAtividadeId" : 4
 }
+```
+<h1 align="center">
+    <img src="https://github.com/deoliveiralima/registro-atividades-api/blob/master/screenshots/postman_post_atividade.png" />
+</h1>
