@@ -35,7 +35,7 @@ URI: http://localhost:8080/atividade/5
 
 <h3> PUT de Atividade  </h3>
 
-URI: http://localhost:8080/atividade/5 
+URI: http://localhost:8080/atividade/5 <br>
 Body: 
 
  ```
