@@ -12,10 +12,10 @@ REST API para a realização do CRUD para o registro de atividades realizadas em
 
 ## Tecnologias: 
 - [x] Java<br> 
-- [x] Spring boot <br> 
-- [x] Spring Security< br> 
-- [x] JSON Web Token< br> 
-- [x] Mysql < br> 
+- [x] Spring boot 
+- [x] Spring Security
+- [x] JSON Web Token
+- [x] Mysql 
 
 <a name="-diagrama"/></a>
 <h2> Diagramas de Classe </h2> 
